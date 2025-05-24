@@ -1,0 +1,45 @@
+.dashboard-content {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  padding: 1.5rem;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .dashboard-content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .overview {
+    grid-column: span 1;
+  }
+
+  .calendar {
+    grid-column: span 2;
+  }
+
+  .schedule,
+  .activity {
+    grid-column: span 3;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .dashboard-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .overview {
+    grid-column: span 1;
+    border: 5px solid black;
+    border-radius: 8px;
+  }
+
+  .calendar {
+    grid-column: span 1;
+    border: 5px solid black;
+    border-radius: 8px;
+  }
+}

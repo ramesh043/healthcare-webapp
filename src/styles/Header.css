@@ -1,0 +1,8 @@
+.header {
+  /* background: #222; */
+  color: black;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
