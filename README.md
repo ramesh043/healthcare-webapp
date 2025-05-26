@@ -51,7 +51,7 @@ vite.config.js # Vite configuration file
    git clone https://github.com/yourusername/healthcare-webapp.git
    cd healthcare-webapp
    
-### Code Structure
+### Component Code Structure
 ```jsx
 // src/components/ActivityFeed.jsx
 
@@ -440,3 +440,21 @@ export default UpcomingSchedule;
 
 ```
 
+
+
+
+
+
+### MockUp Data 
+
+```js
+// src/data/activityData.js
+const activityData = [
+  40, 70, 50, 90, 60, 80, 30, 40, 70, 50, 90, 60, 80, 30, 70, 50, 90, 60, 80,
+  30, 40, 70, 50, 90, 60, 80, 30, 40, 70, 50, 90, 60, 80, 30, 70, 50, 90, 60,
+  80, 30,
+];
+
+export default activityData;
+
+```
