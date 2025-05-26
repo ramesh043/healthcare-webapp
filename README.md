@@ -571,3 +571,50 @@ export default sidebarData;
 ```
 
 
+
+```css
+.bar-chart-with-labels {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bar-chart {
+  display: flex;
+  gap: 4px;
+  height: 150px;
+  align-items: flex-end;
+}
+.bar {
+  width: 8px;
+  border-radius: 4px;
+}
+.bar:nth-child(odd) {
+  background-color: #05f2f2; /* First color */
+}
+
+.bar:nth-child(even) {
+  background-color: #3339a6; /* Second color */
+}
+
+.day-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.day-label {
+  width: calc((100% / 7)); /* Each day takes 1/7th of the width */
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+}
+.activity-title {
+  color: #3339a6;
+}
+.activity-subtitle {
+  color: rgb(182, 182, 182);
+}
+
+```
