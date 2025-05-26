@@ -1,45 +1,138 @@
-.dashboard-content {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: 1fr;
-  padding: 1.5rem;
+.dashboard {
+  display: flex;
+  gap: 10px;
+  height: 85vh;
+
+  padding: 5px;
+  flex-wrap: wrap;
+  /* border: 2px solid black; */
 }
 
-/* Tablet */
-@media (min-width: 768px) {
-  .dashboard-content {
-    grid-template-columns: repeat(3, 1fr);
+.dashboard-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.dashboard-option h2 {
+  color: #3c39ac;
+  font-size: 18px;
+}
+
+.dashboard-option select {
+  border: none;
+  outline: none;
+  color: #3c39ac;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+}
+
+/* Anatomy section layout */
+.anatomySection-content {
+  flex: 1;
+  max-width: 590px;
+  display: flex;
+  gap: 20px;
+}
+
+/* Calendar section layout */
+.calender-content {
+  width: 600px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+    height: auto;
+    overflow-y: scroll;
+    text-align: center;
+    padding: 10px;
   }
 
-  .overview {
-    grid-column: span 1;
+  .dashboard-option {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
   }
 
-  .calendar {
-    grid-column: span 2;
+  .dashboard-option select {
+    margin: 0;
+    width: 100%;
   }
 
-  .schedule,
-  .activity {
-    grid-column: span 3;
+  .anatomySection-content,
+  .calender-content {
+    width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: stretch;
   }
 }
 
-/* Desktop */
-@media (min-width: 1024px) {
-  .dashboard-content {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 480px) {
+  .dashboard {
+    flex-direction: column;
+    height: auto;
+    padding: 8px;
+    gap: 15px;
   }
 
-  .overview {
-    grid-column: span 1;
-    border: 5px solid black;
-    border-radius: 8px;
+  .dashboard-option {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    gap: 10px;
   }
 
-  .calendar {
-    grid-column: span 1;
-    border: 5px solid black;
-    border-radius: 8px;
+  .dashboard-option h2 {
+    font-size: 16px;
+  }
+
+  .dashboard-option select {
+    width: 100%;
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  .anatomySection-content {
+    flex-direction: column;
+    gap: 10px;
+    max-width: 100%;
+  }
+
+  .calender-content {
+    width: 100%;
+    padding: 10px 0;
+    gap: 15px;
+  }
+
+  .card {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .card h5 {
+    font-size: 16px;
+  }
+
+  .card p {
+    font-size: 12px;
+  }
+
+  .range-slider {
+    width: 100%;
   }
 }

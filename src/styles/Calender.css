@@ -1,0 +1,74 @@
+.calender-content {
+  width: 600px;
+  max-width: 100%;
+  /* border: none; */
+  padding: 10px;
+  font-family: sans-serif;
+}
+
+/* Apply font color */
+.calender-content * {
+  color: #3339a6;
+  font-weight: bold;
+  border: none;
+}
+
+/* Style Mobiscroll event calendar rows */
+.mbsc-schedule-event {
+  color: #3339a6; /* Ensure text inside events is colored */
+}
+
+/* Alternate row background: even time slots */
+.mbsc-schedule-row:nth-child(even) {
+  background-color: #dde2f9 !important;
+  border: none;
+  /* padding: 10px; */
+}
+
+/* Optional: improve spacing */
+.mbsc-schedule-grid,
+.mbsc-schedule-row {
+  padding: 4px;
+}
+
+/* Container styling */
+.calender-content {
+  width: 600px;
+  max-width: 100%;
+  padding: 10px;
+  font-family: sans-serif;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+/* Remove all borders from Mobiscroll components */
+.calender-content .mbsc-schedule,
+.calender-content .mbsc-schedule-row,
+.calender-content .mbsc-schedule-grid,
+.calender-content .mbsc-calendar-week-day,
+.calender-content .mbsc-calendar-cell,
+.calender-content .mbsc-calendar {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Font color */
+.calender-content {
+  color: #3339a6 !important;
+}
+
+/* Even row background */
+.calender-content .mbsc-schedule-row:nth-child(even) {
+  background-color: #dde2f9 !important;
+}
+
+/* Optional: Padding inside rows */
+.calender-content .mbsc-schedule-row {
+  padding: 4px;
+}
+
+/* Optional: Remove calendar box outlines if any */
+.calender-content .mbsc-calendar-cell {
+  box-shadow: none !important;
+  border: none !important;
+}

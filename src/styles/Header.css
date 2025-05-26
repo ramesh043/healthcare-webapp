@@ -1,8 +1,123 @@
 .header {
-  /* background: #222; */
-  color: black;
-  padding: 1rem;
+  width: 100%;
+  background-color: white;
+  padding: 0.78rem;
+  border-radius: 15px;
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+}
+/* Base Header Styles */
+.header {
+  background-color: #ffffff;
+  padding: 1rem 1.5rem;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.bell-icon {
+  stroke: #3339a6;
+  width: 24px;
+  height: 24px;
+  fill: #3339a6;
+}
+/* Flex Container */
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Logo */
+.header-logo h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #05f2f2;
+  margin: 0;
+}
+.header-logo span {
+  color: #3339a6;
+}
+/* Search Section */
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: #f1f5f9;
+  border-radius: 8px;
+  flex: 1;
+  margin: 0 1rem;
+  max-width: 400px;
+}
+
+.search-container input[type="search"] {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Right Icons */
+.right-icon {
   display: flex;
   align-items: center;
   gap: 1rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .search-container {
+    width: 100%;
+    margin: 0;
+  }
+
+  .right-icon {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-logo h1 {
+    font-size: 1.2rem;
+  }
+
+  .search-container input[type="search"] {
+    font-size: 12px;
+  }
+
+  .right-icon {
+    gap: 0.5rem;
+    display: none;
+  }
+}
+
+.plus-icon {
+  background-color: #3339a6;
+  padding: 0.24rem;
+  border-radius: 7px;
+  color: white;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+.search-icon {
+  color: #3339a6;
+}
+.profile-pic {
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  border: none;
+  object-fit: cover;
 }

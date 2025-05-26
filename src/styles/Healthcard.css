@@ -1,0 +1,67 @@
+.card {
+  max-width: 500px;
+  /* border: 1px solid black; */
+  margin: 5px;
+  border-radius: 8px;
+  color: black;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+
+  background-color: #f1f5f9;
+  padding: 1rem 1.5rem;
+
+  gap: 10px;
+}
+.card:hover {
+  border: 1px solid black;
+}
+.card p {
+  color: rgb(211, 211, 211);
+  font-size: 10px;
+  font-weight: bold;
+}
+.range-slider {
+  -webkit-appearance: none;
+  width: 50%;
+  height: 3px;
+  background: #af5251;
+  border-radius: 5px;
+  outline: none;
+  margin: 10px 0;
+}
+
+/* Chrome, Safari, Edge */
+.range-slider::-webkit-slider-thumb {
+  /* -webkit-appearance: none; */
+  /* appearance: none; */
+  width: 18px;
+  height: 18px;
+  background: #3339a6;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+.card {
+  max-width: 500px;
+  margin: 5px;
+  border-radius: 8px;
+  color: black;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f5f9;
+  padding: 1rem 1.5rem;
+  gap: 10px;
+
+  /* Transition for smooth hover effect */
+  border: 1px solid transparent;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  border: 1px solid black;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
