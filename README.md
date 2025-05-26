@@ -52,7 +52,7 @@ vite.config.js # Vite configuration file
    cd healthcare-webapp
    
 ### Code Structure
-```
+`
 // src/components/ActivityFeed.jsx
 
 import React from "react";
