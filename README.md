@@ -458,3 +458,116 @@ const activityData = [
 export default activityData;
 
 ```
+
+```js
+import profileImage from "../assets/images/profile-img.jpg";
+
+const headerData = {
+  appName: "HealthCare.",
+  searchPlaceholder: "Search....",
+  bellColor: "#3339A6",
+  profileImage: profileImage,
+};
+
+export default headerData;
+
+```
+
+```js
+  // src/data/healthCardData.js
+import Lungs from "../assets/images/lungs.png";
+import Teeth from "../assets/images/teeth.png";
+import Bone from "../assets/images/bone.png";
+
+const healthCardData = [
+  {
+    title: "Lungs",
+    date: "26 Oct 2021",
+    image: Lungs,
+    rangeStyle: {},
+  },
+  {
+    title: "Teeth",
+    date: "26 Oct 2021",
+    image: Teeth,
+    rangeStyle: { background: "green" },
+  },
+  {
+    title: "Bone",
+    date: "26 Oct 2021",
+    image: Bone,
+    rangeStyle: {},
+  },
+];
+
+export default healthCardData;
+
+```
+
+```js
+const scheduleData = [
+  {
+    day: "On Thursday",
+    appointments: [
+      { title: "HealthCheckup", time: "11:00", image: "🩺" },
+      { title: "Opthalmologist", time: "14:00", image: "👁️" },
+    ],
+  },
+  {
+    day: "On Friday",
+    appointments: [
+      { title: "Cardiologist", time: "9:00", image: "❤️" },
+      { title: "Neurologist", time: "1:00", image: "👨‍⚕️" },
+    ],
+  },
+];
+
+export default scheduleData;
+
+```
+
+```js
+// src/data/sidebarData.js
+import {
+  Calendar,
+  ChartColumnIncreasing,
+  History,
+  LayoutDashboard,
+  MessageSquare,
+  Phone,
+  Settings,
+  SquarePlus,
+} from "lucide-react";
+
+const sidebarData = [
+  {
+    key: "general",
+    title: "General",
+    items: [
+      { icon: LayoutDashboard, label: "Dashboard" },
+      { icon: History, label: "History" },
+      { icon: Calendar, label: "Calendar" },
+      { icon: SquarePlus, label: "Appointments" },
+      { icon: ChartColumnIncreasing, label: "Stats" },
+    ],
+  },
+  {
+    key: "tools",
+    title: "Tools",
+    items: [
+      { icon: MessageSquare, label: "Chat" },
+      { icon: Phone, label: "Support" },
+    ],
+  },
+  {
+    key: "settings",
+    title: "Settings",
+    items: [{ icon: Settings, label: "Settings" }],
+  },
+];
+
+export default sidebarData;
+
+```
+
+
