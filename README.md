@@ -1,4 +1,4 @@
-# Healthcare WebApp
+   # Healthcare WebApp
 
 A modern React-based healthcare web application powered by Vite for fast development and optimized builds.
 
@@ -51,7 +51,7 @@ vite.config.js # Vite configuration file
    git clone https://github.com/yourusername/healthcare-webapp.git
    cd healthcare-webapp
 ### Code Structure
-```
+``
 // src/components/ActivityFeed.jsx
 
 import React from "react";
@@ -92,4 +92,4 @@ function ActivityFeed() {
 }
 
 export default ActivityFeed;
-```
+``
