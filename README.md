@@ -94,3 +94,349 @@ function ActivityFeed() {
 
 export default ActivityFeed;
 ```
+
+
+```jsx
+
+import React from "react";
+import humanBody from "../assets/images/humanbody.png";
+import ActivityFeed from "./ActivityFeed";
+
+import HealthCard from "./HealthCard";
+
+function AnatomySection() {
+  return (
+    <div className="anatomy-section">
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        <img src={humanBody} alt="" height={340} />
+        <HealthCard />
+      </div>
+      <div className="" style={{ width: "500px" }}>
+        <ActivityFeed />
+      </div>
+    </div>
+  );
+}
+
+export default AnatomySection;
+```
+
+
+```jsx
+
+import { Eventcalendar, getJson, setOptions, Toast } from "@mobiscroll/react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import "../styles/Calender.css";
+import "@mobiscroll/react/dist/css/mobiscroll.min.css";
+setOptions({
+  theme: "ios",
+  themeVariant: "light",
+});
+
+function CalendarView() {
+  const [myEvents, setEvents] = useState([]);
+  const [isToastOpen, setToastOpen] = useState(false);
+  const [toastText, setToastText] = useState();
+
+  const handleToastClose = useCallback(() => {
+    setToastOpen(false);
+  }, []);
+
+  const handleEventClick = useCallback((args) => {
+    setToastText(args.event.title);
+    setToastOpen(true);
+  }, []);
+
+  const myView = useMemo(() => ({ calendar: { labels: true } }), []);
+
+  useEffect(() => {
+    getJson(
+      "https://trial.mobiscroll.com/events/?vers=5",
+      (events) => {
+        setEvents(events);
+      },
+      "jsonp"
+    );
+  }, []);
+
+  return (
+    <>
+      <div className="calender-content">
+        <Eventcalendar
+          clickToCreate={false}
+          dragToCreate={false}
+          dragToMove={false}
+          dragToResize={false}
+          eventDelete={false}
+          data={myEvents}
+          view={myView}
+          onEventClick={handleEventClick}
+        />
+        <Toast
+          message={toastText}
+          isOpen={isToastOpen}
+          onClose={handleToastClose}
+        />
+      </div>
+    </>
+  );
+}
+
+export default CalendarView;
+
+```
+```jsx
+import React from "react";
+import AnatomySection from "./AnatomySection";
+import HealthCard from "./HealthCard";
+
+import CalendarView from "./CalendarView";
+import UpcomingSchedule from "./UpcomingSchedule";
+import "../styles/DashboardMainContent.css";
+function DashboardMainContent() {
+  return (
+    <>
+      <div className="dashboard-option">
+        <h2>DashBoard</h2>
+        <select>
+          <option>This Week</option>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+        </select>
+      </div>
+      <div className="dashboard">
+        <div className="anatomySection-content">
+          <AnatomySection />
+        </div>
+        <div className="calender-content">
+          <CalendarView />
+          <UpcomingSchedule />
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default DashboardMainContent;
+```
+
+
+
+```jsx
+
+import { Bell, Plus, Search } from "lucide-react";
+import React from "react";
+import headerData from "../data/headerData";
+import "../styles/Header.css";
+
+function Header() {
+  return (
+    <div className="header">
+      <div className="header-content">
+        <div className="header-logo">
+          <h1>
+            {headerData.appName.split("Care")[0]}
+            <span>Care.</span>
+          </h1>
+        </div>
+
+        <div className="search-container">
+          <Search className="search-icon" />
+          <input type="search" placeholder={headerData.searchPlaceholder} />
+          <Bell
+            color={headerData.bellColor}
+            className="bell-icon"
+            fill={headerData.bellColor}
+          />
+        </div>
+
+        <div className="right-icon">
+          <img
+            src={headerData.profileImage}
+            alt="profile"
+            className="profile-pic"
+          />
+          <Plus className="plus-icon" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Header;
+
+
+```
+
+
+```jsx
+
+import React from "react";
+import "../styles/Healthcard.css";
+import healthCardData from "../data/healthCardData";
+
+function HealthCard() {
+  return (
+    <div className="health-card">
+      <div className="card-container">
+        {healthCardData.map((item, index) => (
+          <div className="card" key={index}>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <img src={item.image} alt={item.title} width={25} />
+              <h5>{item.title}</h5>
+            </div>
+            <p>{item.date}</p>
+            <input
+              type="range"
+              style={item.rangeStyle}
+              className="range-slider"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default HealthCard;
+
+
+```
+
+```jsx
+import React, { useState, useEffect } from "react";
+import sidebarData from "../data/sidebarData";
+import "../styles/Sidebar.css";
+
+function Sidebar() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [expanded, setExpanded] = useState({
+    general: !isMobile,
+    tools: !isMobile,
+    settings: !isMobile,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      setExpanded({
+        general: !mobile,
+        tools: !mobile,
+        settings: !mobile,
+      });
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const toggleSection = (key) => {
+    if (isMobile) {
+      setExpanded((prev) => ({ ...prev, [key]: !prev[key] }));
+    }
+  };
+
+  return (
+    <div className="sidebar">
+      {sidebarData.map(({ key, title, items }) => (
+        <div className="sidebar-section" key={key}>
+          <p className="sidebar-heading" onClick={() => toggleSection(key)}>
+            {title}
+          </p>
+          {expanded[key] && (
+            <div className="sidebar-group">
+              {items.map(({ icon: Icon, label }) => (
+                <div className="sidebar-item" key={label}>
+                  <Icon className="sidebar-icon" color="#3339A6" />
+                  <p>{label}</p>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default Sidebar;
+
+```
+
+
+
+
+```jsx
+import React from "react";
+import "../styles/UpcomingSchedule.css";
+
+function SimpleAppointmentCard({ title, time, image }) {
+  return (
+    <div className="up-card-content">
+      <h5>
+        <span className="emoji">{image}</span> {title}
+      </h5>
+      <p>
+        {time} <span>{parseInt(time) < 12 ? "am" : "pm"}</span>
+      </p>
+    </div>
+  );
+}
+
+export default SimpleAppointmentCard;
+
+```
+
+```jsx
+
+import React from "react";
+import scheduleData from "../data/scheduleData";
+import SimpleAppointmentCard from "./SimpleAppointmentCard";
+import "../styles/UpcomingSchedule.css";
+
+function UpcomingSchedule() {
+  return (
+    <>
+      <div className="small-card">
+        <div className="card-1">
+          <h6 style={{ fontSize: "10px", color: "white" }}>Dentist</h6>
+          <p style={{ fontSize: "10px", color: "white" }}>2:00pm - 5:00pm</p>
+          <span style={{ fontSize: "10px", color: "white" }}>Dr.Samaram</span>
+        </div>
+        <div className="card-1">
+          <h6 style={{ fontSize: "10px", color: "white" }}>Health</h6>
+          <p style={{ fontSize: "10px", color: "white" }}>6:00pm - 7:00pm</p>
+          <span style={{ fontSize: "10px", color: "white" }}>Dr.Samaram</span>
+        </div>
+      </div>
+      <div className="upcoming-main">
+        <h3>The Upcoming Schedule</h3>
+        {scheduleData.map((daySchedule, index) => (
+          <div key={index}>
+            <p style={{ color: "grey", fontSize: "12px" }}>{daySchedule.day}</p>
+            <div className="schedule-card">
+              {daySchedule.appointments.map((appt, idx) => (
+                <SimpleAppointmentCard
+                  key={idx}
+                  title={appt.title}
+                  time={appt.time}
+                  image={appt.image}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  );
+}
+
+export default UpcomingSchedule;
+
+
+```
+
